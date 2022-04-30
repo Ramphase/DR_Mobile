@@ -23,12 +23,11 @@ function App() {
              screenOptions={{headerShown: false}}>
                
            <Stack.Screen name="MainMenu" component={MainMenu} />
+           <Stack.Screen name="Login" component={LoginPage} />
+           <Stack.Screen name="Register" component={RegisterPage} />
             </Stack.Navigator>
         </NavigationContainer>
     );
 }
 
 export default App;
-//  <Stack.Screen name="Login" component={LoginPage} />
-//  <Stack.Screen name="Register" component={RegisterPage} />
-//  <Stack.Screen name="MainMenu" component={MainMenu} />
