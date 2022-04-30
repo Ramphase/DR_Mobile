@@ -5,9 +5,7 @@ import {TwoBackground} from './TwoBackground';
 import {ThreeBackground} from './ThreeBackground';
 
 
-export function RegisterPage() {
-    const [showLogin, setShowLogin] = useState(0);
-    const [showRegister, setShowRegister] = useState(0);
+export function RegisterPage({ navigation }) {
     const [loginName, setLoginName] = useState("");
     const [loginPass, setLoginPass] = useState("");
     const [registerName, setRegisterName] = useState("");
@@ -22,8 +20,7 @@ export function RegisterPage() {
 
             <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5,
              borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
-                    <Text>Email </Text>
-                    <TextInput onChangeText={setLoginName} value={loginName}/>
+                    <TextInput placeholder={'Email'} onChangeText={setLoginName} value={loginName}/>
                     </View>
 
               <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5,
