@@ -9,7 +9,7 @@ import {DisplayImage} from './DisplayImage';
 
 
 
-export function MainMenu() {
+export function MainMenu({navigation}) {
     const [showLogin, setShowLogin] = useState(0);
     const [showRegister, setShowRegister] = useState(0);
     const [loginName, setLoginName] = useState("");
@@ -101,7 +101,6 @@ export function MainMenu() {
 
     return (
         <View>
-        
          <FourBackground name = {'Dead Ringer'}/>
           
 
