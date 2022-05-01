@@ -1,8 +1,7 @@
 import React, { useState, Component } from 'react';
 import { View, Text, Button, TextInput, Platform, StyleSheet, } from 'react-native';
 import {Background} from './Background';
-import {TwoBackground} from './TwoBackground';
-import {ThreeBackground} from './ThreeBackground';
+import {RegisterBackground} from './RegisterBackground';
 
 
 export function RegisterPage({ navigation }) {
@@ -14,8 +13,7 @@ export function RegisterPage({ navigation }) {
 
         return (
             <View>
-                <Background name = {'Dead Ringer'}/>
-                <ThreeBackground name = {'Register'}/>
+                <RegisterBackground name = {'Register'}/>
 
                 <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
                     <TextInput placeholder={'Email'} onChangeText={setLoginName} value={loginName}/>

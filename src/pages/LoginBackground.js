@@ -1,10 +1,7 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { LoginPage } from './src/pages/LoginPage'
 import { View, Text, Button, TextInput, Platform, StyleSheet, } from 'react-native';
 
-export function TwoBackground(props){
+export function LoginBackground(props){
   return (
 
       <View style={{ height: '20%' }}>
