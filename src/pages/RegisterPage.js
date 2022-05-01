@@ -1,6 +1,7 @@
 import React, { useState, Component } from 'react';
-import { View, Text, Button, TextInput, Platform, StyleSheet, } from 'react-native';
+import { View, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import {LoginBackground} from './LoginBackground';
+import { CustomButton } from '../components/CustomButton';
 
 
 export function RegisterPage({ navigation }) {
@@ -10,33 +11,34 @@ export function RegisterPage({ navigation }) {
     const [registerPass, setRegisterPass] = useState("");
 
         return (
-            <View>
+            <ScrollView scrollEnabled={false} showsVerticalScrollIndicator={false}>
                 <LoginBackground name = {'Register'}/>
+                <KeyboardAvoidingView behavior={'height'} style={{alignItems: 'center', marginTop: 20}}>
+                    <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50, marginVertical: 5}}>
+                        <TextInput placeholder={'Email'} textAlign={'center'} onChangeText={setLoginName} value={loginName}/>
+                    </View>
 
-                <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
-                    <TextInput placeholder={'Email'} onChangeText={setLoginName} value={loginName}/>
-                </View>
+                    <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50, marginVertical: 5}}>
+                        <TextInput placeholder={'First Name'} textAlign={'center'} onChangeText={setLoginName} value={loginName}/>
+                    </View>
 
-                <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
-                    <TextInput placeholder={'First Name'} onChangeText={setLoginName} value={loginName}/>
-                </View>
+                    <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50, marginVertical: 5}}>
+                        <TextInput placeholder={'Last Name'} textAlign={'center'} onChangeText={setLoginName} value={loginName}/>
+                    </View>
 
-                <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
-                    <TextInput placeholder={'Last Name'} onChangeText={setLoginName} value={loginName}/>
-                </View>
+                    <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50, marginVertical: 5}}>
+                        <TextInput secureTextEntry={true} textAlign={'center'} placeholder={'Password'} onChangeText={setLoginPass} value={loginPass}/>
+                    </View>
 
-                <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
-                    <TextInput placeholder={'Password'} onChangeText={setLoginPass} value={loginPass}/>
-                </View>
+                    <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50, marginVertical: 5}}>
+                        <TextInput secureTextEntry={true} textAlign={'center'} placeholder={'Confirm Password'} onChangeText={setLoginPass} value={loginPass}/>
+                    </View>
 
-                <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
-                    <TextInput placeholder={'Confirm Password'} onChangeText={setLoginPass} value={loginPass}/>
-                </View>
-
-                <View style={{alignItems: 'stretch', height:350, width:380  }}>
-                    <Button title='Register' onPress={doLogin}/>
-                </View>
-            </View>
+                    <View style={{alignItems: 'stretch', height:350, width:380, marginVertical: 30  }}>
+                        <CustomButton title='Register' onPress={doLogin}/>
+                    </View>
+                </KeyboardAvoidingView>
+            </ScrollView>
     );
 }
 
