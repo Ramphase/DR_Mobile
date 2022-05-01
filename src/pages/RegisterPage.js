@@ -23,24 +23,20 @@ export function RegisterPage({ navigation }) {
                     <TextInput placeholder={'Email'} onChangeText={setLoginName} value={loginName}/>
                     </View>
 
-              <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5,
+             <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5,
              borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
-                    <Text>First Name </Text>
-                    <TextInput onChangeText={setLoginName} value={loginName}/>
+                    <TextInput placeholder={'First Name'}onChangeText={setLoginName} value={loginName}/>
                     </View>
 
-                      <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5,
+            <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5,
              borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
-                    <Text>Last Name </Text>
-                    <TextInput onChangeText={setLoginName} value={loginName}/>
+                    <TextInput placeholder={'Last Name'}onChangeText={setLoginName} value={loginName}/>
                     </View>
 
-             <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, 
+            <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5,
              borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
-
-                    <Text>Password</Text>
-                    <TextInput onChangeText={setLoginPass} value={loginPass}/>
-            </View>
+                    <TextInput placeholder={'Password'}onChangeText={setLoginName} value={loginName}/>
+                    </View>
 
             
             <View style={{alignItems: 'stretch', height:350, width:380  }}>
