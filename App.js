@@ -12,6 +12,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { LoginPage } from './src/pages/LoginPage'
 import { RegisterPage } from './src/pages/RegisterPage'
 import { MainMenu } from './src/pages/MainMenu'
+import { Switches } from './src/pages/Switches'
+
 
 
 const Stack = createNativeStackNavigator();
@@ -19,10 +21,12 @@ const Stack = createNativeStackNavigator();
 function App() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="MainMenu" screenOptions={{headerShown: false}}>
+            <Stack.Navigator initialRouteName="Switches" screenOptions={{headerShown: false}}>
+                <Stack.Screen name="Switches" component={Switches} />
                 <Stack.Screen name="MainMenu" component={MainMenu} />
                 <Stack.Screen name="Login" component={LoginPage} />
                 <Stack.Screen name="Register" component={RegisterPage} />
+
             </Stack.Navigator>
         </NavigationContainer>
     );
