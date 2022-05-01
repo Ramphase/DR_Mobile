@@ -14,40 +14,33 @@ export function RegisterPage({ navigation }) {
 
         return (
             <View>
-            <Background name = {'Dead Ringer'}/>
-            <ThreeBackground name = {'Register'}/>
+                <Background name = {'Dead Ringer'}/>
+                <ThreeBackground name = {'Register'}/>
 
-
-            <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5,
-             borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
+                <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
                     <TextInput placeholder={'Email'} onChangeText={setLoginName} value={loginName}/>
-                    </View>
+                </View>
 
-              <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5,
-             borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
-                    <Text>First Name </Text>
-                    <TextInput onChangeText={setLoginName} value={loginName}/>
-                    </View>
+                <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
+                    <TextInput placeholder={'First Name'} onChangeText={setLoginName} value={loginName}/>
+                </View>
 
-                      <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5,
-             borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
-                    <Text>Last Name </Text>
-                    <TextInput onChangeText={setLoginName} value={loginName}/>
-                    </View>
+                <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
+                    <TextInput placeholder={'Last Name'} onChangeText={setLoginName} value={loginName}/>
+                </View>
 
-             <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, 
-             borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
+                <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
+                    <TextInput placeholder={'Password'} onChangeText={setLoginPass} value={loginPass}/>
+                </View>
 
-                    <Text>Password</Text>
-                    <TextInput onChangeText={setLoginPass} value={loginPass}/>
-            </View>
+                <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
+                    <TextInput placeholder={'Confirm Password'} onChangeText={setLoginPass} value={loginPass}/>
+                </View>
 
-            
-            <View style={{alignItems: 'stretch', height:350, width:380  }}>
-                          
+                <View style={{alignItems: 'stretch', height:350, width:380  }}>
                     <Button title='Register' onPress={doLogin}/>
+                </View>
             </View>
-        </View>
     );
 }
 

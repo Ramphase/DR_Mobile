@@ -7,7 +7,7 @@ export function MainMenu({ navigation }) {
     return (
         <View>
             <FourBackground name = {'Dead Ringer'}/>
-            <View style={{ alignItems: 'center', justifyContent: 'space-evenly', flexDirection: 'row', marginTop: 160, padding : 100 }}>
+            <View style={{ alignItems: 'center', justifyContent: 'space-evenly', flexDirection: 'row'}}>
                 <Button title='Login' onPress={() => navigation.navigate("Login")}/>
                 <Button title='Register' onPress={() => navigation.navigate("Register")}/>
             </View>
