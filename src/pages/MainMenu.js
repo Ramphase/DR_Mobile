@@ -9,8 +9,12 @@ export function MainMenu({ navigation }) {
         <View>
             <SplashBackground name = {'Dead Ringer'}/>
             <View style={{ alignItems: 'center', justifyContent: 'space-evenly', flexDirection: 'row'}}>
-                <CustomButton title='Login' onPress={() => navigation.navigate("Login")}/>
-                <CustomButton title='Register' onPress={() => navigation.navigate("Register")}/>
+                <View style={{width: 180}}>
+                    <CustomButton title='Login' onPress={() => navigation.navigate("Login")}/>
+                </View>
+                <View style={{width: 180}}>
+                    <CustomButton title='Register' onPress={() => navigation.navigate("Register")}/>
+                </View>
             </View>
         </View>
     );
