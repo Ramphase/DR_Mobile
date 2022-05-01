@@ -1,7 +1,7 @@
-import React, { useState, Component } from 'react';
-import { View, Text, Button, TextInput, Platform, StyleSheet, } from 'react-native';
-import {Background} from './Background';
+import React, { useState } from 'react';
+import { View, TextInput } from 'react-native';
 import { LoginBackground } from './LoginBackground';
+import { CustomButton } from '../components/CustomButton';
 
 
 export function LoginPage({ navigation }) {
@@ -11,23 +11,19 @@ export function LoginPage({ navigation }) {
 
         return (
             <View>
-                <Background name = {'Dead Ringer'}/>
                 <LoginBackground name = {'Login'}/>
+                <View style={{alignItems: 'center'}}>
+                    <View style={{backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50, marginTop: 80}}>
+                        <TextInput textAlign={'center'} placeholder={'Email'} onChangeText={setLoginName} value={loginName}/>
+                    </View>
 
-                <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
-                    <TextInput placeholder={'Email'} onChangeText={setLoginName} value={loginName}/>
-                </View>
+                    <View style={{backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50, marginVertical: 20}}>
+                        <TextInput textAlign={'center'} placeholder={'Password'} onChangeText={setLoginPass} value={loginPass}/>
+                    </View>
 
-                <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50}}>
-                    <TextInput placeholder={'Password'} onChangeText={setLoginPass} value={loginPass}/>
-                </View>
-
-                <View style={{alignItems: 'stretch', height:350, width:380  }}>
-                    <Button title='Login' onPress={doLogin}/>
-                </View>
-
-                <View style={{ width:"15%", height: "35%", padding: 80, marginTop: 280, }}>
-                    <Button title='Login' onPress={doLogin}/>
+                    <View style={{alignItems: 'stretch', height:350, width:380, marginTop: 120 }}>
+                        <CustomButton title='Login' onPress={doLogin}/>
+                    </View>
                 </View>
             </View>
     );
