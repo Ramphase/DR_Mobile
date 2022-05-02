@@ -6,7 +6,7 @@ export function DisplayImage(){
     <View>
       <Image
         style={styles.tinyLogo}
-        source={require('C:\Users\A.L.F.R.E.D\Documents\GitHub\DR_Mobile\src\pages/StopWatch2')}
+        
       />
     
     </View>
