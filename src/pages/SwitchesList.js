@@ -5,6 +5,15 @@ import { CustomButton } from '../components/CustomButton';
 
 
 export function Switches({ navigation }) {
+    function Item({item}) {
+        return(
+            <TouchableOpacity onPress={() => navigation.navigate("MainMenu")} style={{margin: 15, width: 380, flexDirection: 'row',}}>
+                <Text style={{fontSize: 18, width: 85,fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>{item.contactID}</Text>
+                <Text style={{fontSize: 18, width: 125,fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>{item.messageTitle}</Text>
+                <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>{item.remainingTime}</Text>
+            </TouchableOpacity>
+        );
+    }
 
     return (
         <View style={{ alignItems: 'center', height: '100%', backgroundColor: 'orangered'}}>
@@ -30,15 +39,7 @@ export function Switches({ navigation }) {
     );
 }
 
-function Item({item}) {
-    return(
-        <TouchableOpacity style={{margin: 15, width: 380, flexDirection: 'row',}}>
-            <Text style={{fontSize: 18, width: 85,fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>{item.contactID}</Text>
-            <Text style={{fontSize: 18, width: 125,fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>{item.messageTitle}</Text>
-            <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>{item.remainingTime}</Text>
-        </TouchableOpacity>
-    );
-}
+
 
 const DATA = [
   {
