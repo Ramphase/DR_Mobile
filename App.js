@@ -28,7 +28,7 @@ const Stack = createNativeStackNavigator();
 function App() {
     return (
         <NavigationContainer>
-                <Stack.Navigator initialRouteName="CreateContacts" screenOptions={{headerShown: false}}>
+                <Stack.Navigator initialRouteName="MainMenu" screenOptions={{headerShown: false}}>
                 <Stack.Screen name="MainMenu" component={MainMenu} />
                 <Stack.Screen name="Login" component={LoginPage} />
                 <Stack.Screen name="Register" component={RegisterPage} />
