@@ -7,10 +7,10 @@ import { CustomButton } from '../components/CustomButton';
 export function Switches({ navigation }) {
     function Item({item}) {
         return(
-            <TouchableOpacity onPress={() => navigation.navigate("MainMenu")} style={{margin: 15, width: 380, flexDirection: 'row',}}>
-                <Text style={{fontSize: 18, width: 85,fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>{item.contactID}</Text>
-                <Text style={{fontSize: 18, width: 125,fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>{item.messageTitle}</Text>
-                <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>{item.remainingTime}</Text>
+            <TouchableOpacity onPress={() => navigation.navigate("EditSwitches")} style={{margin: 15, width: 380, flexDirection: 'row',}}>
+                <Text style={{fontSize: 18, width: 85,fontWeight: 'bold', marginTop: 20}}>{item.contact}</Text>
+                <Text style={{fontSize: 18, width: 125,fontWeight: 'bold', marginTop: 20}}>{item.messageTitle}</Text>
+                <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 11}}>{item.remainingTime}</Text>
             </TouchableOpacity>
         );
     }
@@ -22,7 +22,7 @@ export function Switches({ navigation }) {
                 
 
                 <View style={{margin: 15, width: 380, flexDirection: 'row',}}>
-                    <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>Contact ID</Text>
+                    <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>Contact</Text>
                     <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>Message Title</Text>
                     <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>Time Remaining</Text>
                 </View>
@@ -30,7 +30,7 @@ export function Switches({ navigation }) {
                 <View style={{backgroundColor: 'black', borderWidth: 3, borderColor: 'black', width:400, height: 0, marginVertical: 5}} />
                 <FlatList renderItem={Item} data={DATA}/>
 
-                <View style={{ marginTop: 120, marginBottom: 120, alignItems: 'center', flexDirection: 'column'}}>
+                <View style={{ marginTop: 120, marginBottom: 100, alignItems: 'center', flexDirection: 'column'}}>
                 <CustomButton title='Create Switch' onPress={() => navigation.navigate("CreateSwitch")} width= {250}/>
                 </View>
 
@@ -44,19 +44,19 @@ export function Switches({ navigation }) {
 const DATA = [
   {
     id: '1',
-    contactID: 'Billy',
+    contact: 'Billy',
     messageTitle: 'Secrets',
     remainingTime: '10 minutes',
   },
   {
     id: '2',
-    contactID: 'Bob',
+    contact: 'Bob',
     messageTitle: 'Secrets',
     remainingTime: '30 minutes',
   },
   {
     id: '3',
-    contactID: 'Billy',
+    contact: 'Billy',
     messageTitle: 'BEEG Secrets',
     remainingTime: '12 hours',
   },

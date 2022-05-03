@@ -7,10 +7,11 @@ import { CustomButton } from '../components/CustomButton';
 export function ContactsList({ navigation }) {
     function Item({item}) {
     return(
-        <TouchableOpacity style={{margin: 15, width: 380, flexDirection: 'row',}}>
-            <Text style={{fontSize: 18, width: 85,fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>{item.contactID}</Text>
-            <Text style={{fontSize: 18, width: 125,fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>{item.messageTitle}</Text>
-            <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>{item.remainingTime}</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("EditContacts")} style={{width: 380, flexDirection: 'row',}}>
+            
+            <Text style={{fontSize: 15, fontWeight: 'bold', width: 85, marginVertical: 10}}>{item.name}</Text>
+            <Text style={{fontSize: 15, fontWeight: 'bold', width: 175, marginVertical: 10}}>{item.email}</Text>
+            <Text style={{fontSize: 15, fontWeight: 'bold', marginVertical: 10}}>{item.phoneNumber}</Text>
         </TouchableOpacity>
     );
 }
@@ -21,17 +22,17 @@ export function ContactsList({ navigation }) {
                 <Text style = {{fontWeight: 'bold', fontSize: 40, color: 'white', marginTop: 40}}> Contacts</Text>
                 
 
-                <View style={{margin: 15, width: 370, flexDirection: 'row',}}>
-                    <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 9}}>Name</Text>
-                    <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 49}}>Email</Text>
-                    <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 49}}>Phone Number</Text>
+                <View style={{ width: 400, flexDirection: 'row',}}>
+                    <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 8}}>Name</Text>
+                    <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 30}}>Email</Text>
+                    <Text style={{fontSize: 18, fontWeight: 'bold', marginTop: 20, marginHorizontal: 99}}>Phone Number</Text>
                 </View>
 
-                <View style={{backgroundColor: 'black', borderWidth: 3, borderColor: 'black', width:400, height: 0, marginVertical: 5}} />
+                <View style={{backgroundColor: 'black', borderWidth: 3, borderColor: 'black', width:400, marginVertical: 5}} />
                 <FlatList renderItem={Item} data={DATA}/>
 
-                <View style={{ marginTop: 120, marginBottom: 120, alignItems: 'center', flexDirection: 'column'}}>
-                <CustomButton title='Create Contact' onPress={() => navigation.navigate("CreateSwitch")} width= {250}/>
+                <View style={{ marginBottom: 40, alignItems: 'center', flexDirection: 'column'}}>
+                <CustomButton title='Create Contact' onPress={() => navigation.navigate("CreateContacts")} width= {250}/>
                 </View>
 
             </View>
@@ -44,21 +45,21 @@ export function ContactsList({ navigation }) {
 const DATA = [
   {
     id: '1',
-    contactID: 'Billy',
-    messageTitle: 'Secrets',
-    remainingTime: '10 minutes',
+    name: 'Billy maddison',
+    email: 'BigPapabill@gmail.com',
+    phoneNumber: '407-414-8596',
   },
-  {
+   {
     id: '2',
-    contactID: 'Bob',
-    messageTitle: 'Secrets',
-    remainingTime: '30 minutes',
+    name: 'Billy',
+    email: 'Secrets',
+    phoneNumber: '10 minutes',
   },
   {
     id: '3',
-    contactID: 'Billy',
-    messageTitle: 'BEEG Secrets',
-    remainingTime: '12 hours',
+    name: 'Billy',
+    email: 'Secrets',
+    phoneNumber: '10 minutes',
   },
 
 ];

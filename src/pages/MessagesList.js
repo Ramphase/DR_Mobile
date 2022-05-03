@@ -9,7 +9,7 @@ export function Messages({ navigation }) {
     return(
         <TouchableOpacity onPress={() => navigation.navigate("EditMessages")} style={{ margin: 15, width: 480, flexDirection: 'row',}}>
             <Text style={{fontSize: 14, width:160, fontWeight: 'bold', marginHorizontal: 26, marginTop: 1}}>{item.messageTitle}</Text>
-            <Text style={{fontSize: 14, width: 125, fontWeight: 'bold', marginTop: 1, marginHorizontal: 1}}>{item.messageText}</Text>
+            <Text style={{fontSize: 14, width: 160, fontWeight: 'bold', marginTop: 1, marginHorizontal: 1}}>{item.messageText}</Text>
         </TouchableOpacity>
     );
 }
@@ -42,8 +42,8 @@ export function Messages({ navigation }) {
 const DATA = [
   {
     id: '1',
-    messageTitle: 'Billy got that good kush boys lets go poppinlokcojf',
-    messageText: 'HELP ME NIBBA'
+    messageTitle: 'HELP ME NIBBA',
+    messageText: 'Billy got that good kush boys lets go poppinlokcojf'
   },
   {
     id: '2',

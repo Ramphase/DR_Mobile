@@ -12,13 +12,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { LoginPage } from './src/pages/LoginPage'
 import { RegisterPage } from './src/pages/RegisterPage'
 import { MainMenu } from './src/pages/MainMenu'
-import { Switches } from './src/pages/SwitchesList'
-import { Messages } from './src/pages/MessagesList'
-import { ContactsList } from './src/pages/ContactsList'
-import { EditMessages } from './src/pages/EditMessages';
 import { CreateMessages } from './src/pages/CreateMessages';
-import { EditContacts } from './src/pages/EditContacts';
+import { Switches } from './src/pages/SwitchesList'
 import { CreateContacts } from './src/pages/CreateContacts';
+import { EditContacts } from './src/pages/EditContacts';
+import { EditMessages } from './src/pages/EditMessages';
+import { ContactsList } from './src/pages/ContactsList'
+import { Messages } from './src/pages/MessagesList'
+import { EditSwitches } from './src/pages/EditSwitches';
 
 
 
@@ -28,7 +29,7 @@ const Stack = createNativeStackNavigator();
 function App() {
     return (
         <NavigationContainer>
-                <Stack.Navigator initialRouteName="MainMenu" screenOptions={{headerShown: false}}>
+                <Stack.Navigator initialRouteName="MainMenu"  screenOptions={{headerShown: false}}>
                 <Stack.Screen name="MainMenu" component={MainMenu} />
                 <Stack.Screen name="Login" component={LoginPage} />
                 <Stack.Screen name="Register" component={RegisterPage} />
@@ -39,6 +40,7 @@ function App() {
                 <Stack.Screen name="CreateMessages" component={CreateMessages} />
                 <Stack.Screen name="EditContacts" component={EditContacts} />
                 <Stack.Screen name="CreateContacts" component={CreateContacts} />
+                <Stack.Screen name="EditSwitches" component={EditSwitches} />
 
 
             </Stack.Navigator>
