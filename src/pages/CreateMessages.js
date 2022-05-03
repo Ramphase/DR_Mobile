@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { View, TextInput, KeyboardAvoidingView, Text } from 'react-native';
 import { CustomButton } from '../components/CustomButton';
 
-export function EditMessages({ navigation }) {
+export function CreateMessages({ navigation }) {
     return (
         <View style={{ alignItems: 'center', height: '100%', backgroundColor: 'orangered'}}>
             <View style={{ marginTop: 30, alignItems: 'center', flexDirection: 'column'}}>
-                <Text style = {{fontWeight: 'bold', fontSize: 40, color: 'white', marginTop: 40, marginBottom: 120}}>Edit Message</Text>
+                <Text style = {{fontWeight: 'bold', fontSize: 40, color: 'white', marginTop: 40, marginBottom: 120}}>Create Message</Text>
 
                 <View style={{alignItems: 'center', backgroundColor: 'white', borderWidth: 5, borderRadius: 20, borderColor: 'gainsboro', width:380, height: 50, marginVertical: 20}}>
                     <TextInput textAlign={'center'} placeholder={'Message Name'} />
@@ -16,12 +16,8 @@ export function EditMessages({ navigation }) {
                     <TextInput textAlign={'center'} placeholder={'Message Body'} />
                 </View>
 
-                <View style={{ marginTop: 120, marginBottom: 20, alignItems: 'center', flexDirection: 'column'}}>
-                    <CustomButton title='Save Changes' onPress={() => saveChanges(navigation)} width= {250}/>
-                </View>
-
-                <View style={{ marginTop: 20, marginBottom: 20, alignItems: 'center', flexDirection: 'column'}}>
-                    <CustomButton title='Delete Message' onPress={() => saveChanges(navigation)} width= {250}/>
+                <View style={{ marginTop: 180, marginBottom: 20, alignItems: 'center', flexDirection: 'column'}}>
+                    <CustomButton title='Create Message' onPress={() => createMessage(navigation)} width= {250}/>
                 </View>
 
             </View>
@@ -29,10 +25,6 @@ export function EditMessages({ navigation }) {
     );
 }
 
-function saveChanges({ navigation }) {
-    navigation.navigate("MessageList");
-}
-
-function deleteMessage({ navigation }) {
+function createMessage({ navigation }) {
     navigation.navigate("MessageList");
 }

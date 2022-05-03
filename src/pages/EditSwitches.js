@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, TextInput, KeyboardAvoidingView, Text } from 'react-native';
 import { CustomButton } from '../components/CustomButton';
 
-export function EditMessages({ navigation }) {
+export function EditSwitches({ navigation }) {
     return (
         <View style={{ alignItems: 'center', height: '100%', backgroundColor: 'orangered'}}>
             <View style={{ marginTop: 30, alignItems: 'center', flexDirection: 'column'}}>
