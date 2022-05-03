@@ -1,15 +1,60 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { View, Text, FlatList,  VirtualizedList, 
     TouchableOpacity } from 'react-native';
 import { CustomButton } from '../components/CustomButton';
+import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
+import { connect } from 'react-redux';
 
 
-export function Messages({ navigation }) {
+function MessagesList(props) {
+    const navigation = useNavigation();
+    var DATA = [];
+    useEffect(() => {
+        var bp = 'https://dead-ringer.herokuapp.com/'
+        var obj = { userId: props.token.userID, jwtToken: props.token.token };
+        var js = JSON.stringify(obj);
+        var config = {
+          method: "post",
+          url: bp + "displayContacts",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: js,
+        };
+        axios(config).then(function (response) {
+          var res = response.data;
+          console.log(res);
+          if (res.error) {
+            console.log("Failure");
+          } else {
+            console.log("Success");
+            if (res.results.length > 0) {
+              setContacts(
+                res.results.map((swtch) => ({
+                  id: swtch.MessageId,
+                  name: swtch.MessageName,
+                  text: swtch.Text,
+                }))
+              );
+              console.log(res.results);
+            } else {
+              console.log("No contacts to display");
+            }
+          }
+        });
+      }, []);
+
+      function setSwitches(list) {
+          for (let i = 0; i < list.length; i++) {
+              DATA[i] = list.i;
+          }
+      }
     function Item({item}) {
     return(
         <TouchableOpacity onPress={() => navigation.navigate("EditMessages")} style={{ margin: 15, width: 480, flexDirection: 'row',}}>
-            <Text style={{fontSize: 14, width:160, fontWeight: 'bold', marginHorizontal: 26, marginTop: 1}}>{item.messageTitle}</Text>
-            <Text style={{fontSize: 14, width: 160, fontWeight: 'bold', marginTop: 1, marginHorizontal: 1}}>{item.messageText}</Text>
+            <Text style={{fontSize: 14, width:160, fontWeight: 'bold', marginHorizontal: 26, marginTop: 1}}>{item.name}</Text>
+            <Text style={{fontSize: 14, width: 160, fontWeight: 'bold', marginTop: 1, marginHorizontal: 1}}>{item.text}</Text>
         </TouchableOpacity>
     );
 }
@@ -38,22 +83,9 @@ export function Messages({ navigation }) {
     );
 }
 
+function mapStateToProps(state) {
+    const { token } = state;
+    return { token };
+}
 
-const DATA = [
-  {
-    id: '1',
-    messageTitle: 'HELP ME NIBBA',
-    messageText: 'Billy got that good kush boys lets go poppinlokcojf'
-  },
-  {
-    id: '2',
-    messageTitle: 'Bdsadfdsffdsas go poppinlokcojf',
-    messageText: 'dfsdaklfjadslkfjsdaklfj;dfjaskld'
-  },
-  {
-    id: '3',
-    messageTitle: 'Bhdgfjg443543454ets go poppinlokcojf',
-    messageText: 'dfsdaklfjadslkfjsdaklfj;dfjaskld'
-  },
-
-];
+export default connect(mapStateToProps)(MessagesList)

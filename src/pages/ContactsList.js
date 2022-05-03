@@ -1,10 +1,55 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { View, Text, FlatList,  VirtualizedList, 
     TouchableOpacity } from 'react-native';
 import { CustomButton } from '../components/CustomButton';
+import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
+import { connect } from 'react-redux';
 
 
-export function ContactsList({ navigation }) {
+function ContactsList(props) {
+    const navigation = useNavigation();
+    var DATA = [];
+    useEffect(() => {
+        var bp = 'https://dead-ringer.herokuapp.com/'
+        var obj = { userId: props.token.userID, jwtToken: props.token.token };
+        var js = JSON.stringify(obj);
+        var config = {
+          method: "post",
+          url: bp + "displayContacts",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: js,
+        };
+        axios(config).then(function (response) {
+          var res = response.data;
+          console.log(res);
+          if (res.error) {
+            console.log("Failure");
+          } else {
+            console.log("Success");
+            if (res.results.length > 0) {
+              setContacts(
+                res.results.map((swtch) => ({
+                  name: swtch.MessageId,
+                  email: swtch.MessageName,
+                  phoneNumber: swtch.Text,
+                }))
+              );
+              console.log(res.results);
+            } else {
+              console.log("No contacts to display");
+            }
+          }
+        });
+      }, []);
+
+    function setContacts(list) {
+        for (let i = 0; i < list.length; i++) {
+            DATA[i] = list.i;
+        }
+    }
     function Item({item}) {
     return(
         <TouchableOpacity onPress={() => navigation.navigate("EditContacts")} style={{width: 380, flexDirection: 'row',}}>
@@ -40,26 +85,9 @@ export function ContactsList({ navigation }) {
     );
 }
 
+function mapStateToProps(state) {
+    const { token } = state;
+    return { token };
+}
 
-
-const DATA = [
-  {
-    id: '1',
-    name: 'Billy maddison',
-    email: 'BigPapabill@gmail.com',
-    phoneNumber: '407-414-8596',
-  },
-   {
-    id: '2',
-    name: 'Billy',
-    email: 'Secrets',
-    phoneNumber: '10 minutes',
-  },
-  {
-    id: '3',
-    name: 'Billy',
-    email: 'Secrets',
-    phoneNumber: '10 minutes',
-  },
-
-];
+export default connect(mapStateToProps)(ContactsList)
